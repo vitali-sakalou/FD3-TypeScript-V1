@@ -4,6 +4,7 @@ function test1(arg1:number,arg2:string):void {
 }
 
 test1(11,"f");
+// test1(11); - ошибка
 
 
 function test2(arg1:number,arg2?:string,arg3?:boolean):void {
