@@ -3,6 +3,6 @@ var n:null=null;
 
 var u:undefined=undefined;
 
-var varstr:String=null;
-var varnum:Number=undefined;
-var varbool:Boolean=null;
+var varstr:string=null;
+var varnum:number=undefined;
+var varbool:boolean=null;

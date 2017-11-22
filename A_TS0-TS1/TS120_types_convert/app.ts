@@ -1,11 +1,11 @@
 
 var n1:any=5;
 
-var s1:String=n1;
+var s1:string=n1;
 console.log(s1);
 
-var s2:String=<String>n1;
+var s2:string=<string>n1;
 console.log(s2);
 
-var s3:String=n1 as String;
+var s3:string=n1 as string;
 console.log(s3);

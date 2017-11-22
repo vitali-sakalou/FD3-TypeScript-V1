@@ -1,8 +1,8 @@
-var b:Boolean=true;
+var b:boolean=true;
 
-var s:String="Hello";
+var s:string="Hello";
 
-var n:Number=555;
+var n:number=555;
 
 var a1:any=5;
 var a2:any="fff";
