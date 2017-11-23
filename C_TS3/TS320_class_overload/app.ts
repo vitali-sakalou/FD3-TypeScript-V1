@@ -19,7 +19,7 @@ class Car {
 
     }
 
-    show() {
+    show():void {
         console.log('car numb='+this.num+' wheels='+this.wheels);
     }
 

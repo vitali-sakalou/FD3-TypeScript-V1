@@ -14,7 +14,7 @@ class Car {
         this.wheels=5;
     }
 
-    show() {
+    show():void {
         console.log('car numb='+this.num+' wheels='+this.wheels);
         
         // readonly-свойство больше нигде изменить нельзя

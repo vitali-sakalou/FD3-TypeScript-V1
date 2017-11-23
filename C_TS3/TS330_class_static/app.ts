@@ -12,7 +12,7 @@ class Car {
         this.num=_num; 
     }
 
-    show() {
+    show():void {
         console.log('car numb='+this.num+' wheels='+this.wheels);
     }
 

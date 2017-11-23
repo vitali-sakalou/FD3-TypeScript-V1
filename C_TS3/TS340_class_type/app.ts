@@ -7,11 +7,11 @@ class Transp {
         this.speed=0; 
     }
 
-    start(_speed:number) {
+    start(_speed:number):void {
         this.speed=_speed;
     }
 
-    stop() {
+    stop():void {
         this.speed=0;
     }
     
