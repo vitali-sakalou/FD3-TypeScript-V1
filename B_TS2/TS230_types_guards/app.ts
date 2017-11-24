@@ -1,9 +1,11 @@
 
 function getLength1(value:string|number):number {
     if ( typeof(value)==="number" ) {
+        // внутри этого if считается, что value - число
         return value;
     }
     if ( typeof(value)==="string" ) {
+        // внутри этого if считается, что value - строка
         return value.length;
     }
 }
