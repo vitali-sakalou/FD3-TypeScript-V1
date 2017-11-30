@@ -45,7 +45,7 @@ class MotorShip implements IEngine, IWaterTransp {
 // бензоколонка
 class GasStation {
 
-    addEngineFuel(motor:IEngine) {
+    addEngineFuel(motor:IEngine):void {
         // бензоколонке всё равно - катер это или автомобиль
         // она работает с интерфейсом IEngine
         motor.addFuel(100);
@@ -56,7 +56,7 @@ class GasStation {
 // портовый рабочий
 class PortWorker {
 
-    shipWaterLaunch(ship:IWaterTransp) {
+    shipWaterLaunch(ship:IWaterTransp):void {
         // портовому рабочему всё равно, подводная это лодка, катер или плот
         // он работает с интерфейсом IWaterTransp
         ship.waterLaunch();
