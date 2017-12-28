@@ -22,7 +22,8 @@ class Ship {
     }
     
     show():void {
-        console.log("ship sailState="+this._sailState+" speed="+this._speed);
+        console.log("ship sailState="+this._sailState
+          +" speed="+this._speed);
     }
 }
 

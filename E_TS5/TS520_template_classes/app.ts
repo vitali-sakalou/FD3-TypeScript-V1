@@ -27,7 +27,8 @@ class StorageArea<StorageItem> {
 
 class Computer {
 
-    price:number; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    price:number; 
     
     getWidth():number { return 200; }
     getHeight():number { return 500; }
@@ -39,7 +40,8 @@ class Computer {
 
 class Car {
     
-    model:string; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    model:string; 
     
     getWidth():number { return 2000; }
     getHeight():number { return 2000; }

@@ -48,7 +48,8 @@ class Ship {
     }    
 
     showShip():void {
-        console.log("ship sailState="+this.sailState+" speed="+this.speed);
+        console.log("ship sailState="+this.sailState
+          +" speed="+this.speed);
     }
 }
 

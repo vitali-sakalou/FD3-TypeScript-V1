@@ -9,8 +9,8 @@ interface IStorageItem {
 
 }
     
-// хранилище однородных (похожих) объектов произвольного класса StorageItem,
-// реализующего интерфейс IStorageItem
+// хранилище однородных (похожих) объектов произвольного 
+// класса StorageItem, реализующего интерфейс IStorageItem
 class StorageArea {
 
     items: any[];
@@ -24,7 +24,8 @@ class StorageArea {
         let index:number=this.items.length;
         this.items.push(item);
         console.log("сохранён объект"
-            +" размером "+item.getWidth()+"x"+item.getHeight()+"x"+item.getDepth()+" мм,"
+            +" размером "+item.getWidth()+"x"
+              +item.getHeight()+"x"+item.getDepth()+" мм,"
             +" весом "+item.getWeight()+" г"
         );
         return index;
@@ -38,7 +39,8 @@ class StorageArea {
 
 class Computer implements IStorageItem {
 
-    price:number; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    price:number; 
     
     getWidth():number { return 200; }
     getHeight():number { return 500; }
@@ -50,7 +52,8 @@ class Computer implements IStorageItem {
 
 class Car implements IStorageItem {
     
-    model:string; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    model:string; 
     
     getWidth():number { return 2000; }
     getHeight():number { return 2000; }
@@ -68,9 +71,12 @@ let computer2:Computer=new Computer;
 
 // сохраним на складе 2 компьютера
 // можно указывать тИповый аргумент
-let computerIndex1:number=computersStorageArea.storeItem<Computer>(computer1);
-// можно не указывать тИповый аргумент - он будет определён автоматически
-let computerIndex2:number=computersStorageArea.storeItem(computer2);
+let computerIndex1:number=
+  computersStorageArea.storeItem<Computer>(computer1);
+// можно не указывать тИповый аргумент - 
+// он будет определён автоматически
+let computerIndex2:number=
+  computersStorageArea.storeItem(computer2);
    
 // склад автомобилей
 let carsStorageArea=new StorageArea();
@@ -81,13 +87,15 @@ let car2:Car=new Car;
 // сохраним на складе 2 автомобиля
 // можно указывать тИповый аргумент
 let carIndex1:number=carsStorageArea.storeItem<Car>(car1);
-// можно не указывать тИповый аргумент - он будет определён автоматически
+// можно не указывать тИповый аргумент - 
+// он будет определён автоматически
 let carIndex2:number=carsStorageArea.storeItem(car2);
 
 // получим один из хранимых объектов
 // можно указывать тИповый аргумент
 let item11:Car=carsStorageArea.getItem<Car>(carIndex2);
-let item12:Computer=computersStorageArea.getItem<Computer>(computerIndex2);
+let item12:Computer=
+  computersStorageArea.getItem<Computer>(computerIndex2);
 // можно не указывать тИповый аргумент
 // TypeScript его НЕ может определить автоматически, он нам верит
 let item21:Car=carsStorageArea.getItem(carIndex2);

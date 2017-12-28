@@ -38,7 +38,8 @@ class MotorShip implements IEngine, IWaterTransp {
     }
     
     show():void {
-        console.log('ship fuelLevel='+this.fuelLevel+' onWater='+this.onWater);
+        console.log('ship fuelLevel='+this.fuelLevel
+          +' onWater='+this.onWater);
     }
 }
 
@@ -57,7 +58,8 @@ class GasStation {
 class PortWorker {
 
     shipWaterLaunch(ship:IWaterTransp):void {
-        // портовому рабочему всё равно, подводная это лодка, катер или плот
+        // портовому рабочему всё равно, 
+        // подводная это лодка, катер или плот
         // он работает с интерфейсом IWaterTransp
         ship.waterLaunch();
     }

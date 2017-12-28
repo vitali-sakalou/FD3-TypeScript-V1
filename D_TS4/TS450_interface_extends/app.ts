@@ -76,7 +76,8 @@ class Ship implements ISpeed {
     }    
 
     show():void {
-        console.log("ship sailState="+this.sailState+" speed="+this.speed);
+        console.log("ship sailState="+this.sailState
+          +" speed="+this.speed);
     }
 }
 
@@ -92,10 +93,13 @@ function trainer(tr:ISpeed):void {
     console.log('training finished');
 }
 
-// функция trainer ожидает объект любого класса, реализующего интерфейс ISpeed или его потомка
-// мы можем ей передать корабль - объект класса Ship, он реализует интерфейс ISpeed
+// функция trainer ожидает объект любого класса, 
+// реализующего интерфейс ISpeed или его потомка
+// мы можем ей передать корабль - объект класса Ship, 
+// он реализует интерфейс ISpeed
 ship1.show();
 trainer(ship1);
-// мы можем ей передать машинку - объект класса Car, он реализует интерфейс ISpeedExt - потомка ISpeed
+// мы можем ей передать машинку - объект класса Car, 
+// он реализует интерфейс ISpeedExt - потомка ISpeed
 car1.show();
 trainer(car1);

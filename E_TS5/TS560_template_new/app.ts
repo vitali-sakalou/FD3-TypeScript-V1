@@ -17,7 +17,8 @@ class Computer {
     
     show():void {
         console.log("Компьютер"
-        +" размером "+this.getWidth()+"x"+this.getHeight()+"x"+this.getDepth()+" мм,"
+        +" размером "+this.getWidth()+"x"
+          +this.getHeight()+"x"+this.getDepth()+" мм,"
         +" весом "+this.getWeight()+" г");
     }
 
@@ -33,7 +34,8 @@ class Car {
     
     show():void {
         console.log("Машинка"
-        +" размером "+this.getWidth()+"x"+this.getHeight()+"x"+this.getDepth()+" мм,"
+        +" размером "+this.getWidth()+"x"
+          +this.getHeight()+"x"+this.getDepth()+" мм,"
         +" весом "+this.getWeight()+" г");
     }
     

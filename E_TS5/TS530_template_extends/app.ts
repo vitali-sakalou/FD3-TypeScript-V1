@@ -9,8 +9,8 @@ interface IStorageItem {
 
 }
     
-// хранилище однородных (похожих) объектов произвольного класса StorageItem,
-// реализующего интерфейс IStorageItem
+// хранилище однородных (похожих) объектов произвольного 
+// класса StorageItem, реализующего интерфейс IStorageItem
 class StorageArea<StorageItem extends IStorageItem> {
 
     items: StorageItem[];
@@ -24,7 +24,8 @@ class StorageArea<StorageItem extends IStorageItem> {
         let index:number=this.items.length;
         this.items.push(item);
         console.log("сохранён объект"
-            +" размером "+item.getWidth()+"x"+item.getHeight()+"x"+item.getDepth()+" мм,"
+            +" размером "+item.getWidth()+"x"
+              +item.getHeight()+"x"+item.getDepth()+" мм,"
             +" весом "+item.getWeight()+" г"
         );
         return index;
@@ -38,7 +39,8 @@ class StorageArea<StorageItem extends IStorageItem> {
 
 class Computer implements IStorageItem {
 
-    price:number; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    price:number; 
     
     getWidth():number { return 200; }
     getHeight():number { return 500; }
@@ -50,7 +52,8 @@ class Computer implements IStorageItem {
 
 class Car implements IStorageItem {
     
-    model:string; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    model:string; 
     
     getWidth():number { return 2000; }
     getHeight():number { return 2000; }

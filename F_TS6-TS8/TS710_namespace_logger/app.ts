@@ -43,7 +43,8 @@ namespace LoggerSpace {
 let logger1:LoggerSpace.Logger=new LoggerSpace.Logger;
 logger1.add("запись №1");
 
-// let logItem1:LoggerSpace.LogItem; - ошибка - LogItem это внутренняя кухня простанства имён
+// let logItem1:LoggerSpace.LogItem; - ошибка - 
+// LogItem это внутренняя кухня простанства имён
 
 // можно проимпортировать сущность, экспортируемую пространством имён
 // по сути это назначение короткого имени

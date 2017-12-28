@@ -22,7 +22,8 @@ class Car extends Transp {
     numb:string;
 
     constructor(_numb:string) {
-        // конструктор класса-потомка должен вызвать конструктор класса-предка
+        // конструктор класса-потомка должен вызвать 
+        // конструктор класса-предка
         super(); 
         this.numb=_numb;
     }
@@ -50,19 +51,22 @@ class Ship extends Transp {
     }
 
     start(_speed:number):void {
-        // переопределённый метод ОБЫЧНО должен вызвать метод класса-предка, т.е. РАСШИРИТЬ его новым поведением
+        // переопределённый метод ОБЫЧНО должен вызвать 
+        // метод класса-предка, т.е. РАСШИРИТЬ его новым поведением
         super.start(_speed);
         this.setSail(true);
     }
 
     stop():void {
-        // переопределённый метод ОБЫЧНО должен вызвать метод класса-предка, т.е. РАСШИРИТЬ его новым поведением
+        // переопределённый метод ОБЫЧНО должен вызвать 
+        // метод класса-предка, т.е. РАСШИРИТЬ его новым поведением
         super.stop();
         this.setSail(false);
     }    
 
     show():void {
-        console.log("ship sailState="+this.sailState+" speed="+this.speed);
+        console.log("ship sailState="+this.sailState
+          +" speed="+this.speed);
     }
 }
 

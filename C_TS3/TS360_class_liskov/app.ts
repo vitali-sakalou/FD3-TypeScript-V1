@@ -59,7 +59,8 @@ class Ship extends Transp {
     }    
 
     show():void {
-        console.log("ship sailState="+this.sailState+" speed="+this.speed);
+        console.log("ship sailState="+this.sailState
+          +" speed="+this.speed);
     }
 }
 
@@ -85,12 +86,15 @@ function trainer(tr:Transp):void {
 trainer(car1);
 trainer(ship1);
 
-// переменной класса-предка можно присвоить объект любого класса-потомка
+// переменной класса-предка можно присвоить 
+// объект любого класса-потомка
 let trcar:Transp=car1;
 let trship:Transp=ship1;
-// у этих объектов можно работать теперь только с теми свойствами и методами, которые есть у Transp
+// у этих объектов можно работать теперь 
+// только с теми свойствами и методами, которые есть у Transp
 
-// переменной класса-потомка нельзя присвоить объект класса-предка напрямую
+// переменной класса-потомка нельзя присвоить 
+// объект класса-предка напрямую
 // let car2:Car=trcar; - ошибка
 // let ship2:Ship=trship; - ошибка
 // присвоить можно только с явным преобразованием

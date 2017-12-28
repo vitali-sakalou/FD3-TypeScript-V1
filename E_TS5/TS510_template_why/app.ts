@@ -9,7 +9,8 @@ interface IStorageItem {
 
 }
 
-// хранилище однородных (похожих) объектов, реализующих интерфейс IStorageItem
+// хранилище однородных (похожих) объектов, 
+// реализующих интерфейс IStorageItem
 class StorageArea {
 
     items: IStorageItem[];
@@ -23,7 +24,8 @@ class StorageArea {
         let index:number=this.items.length;
         this.items.push(item);
         console.log("сохранён объект"
-            +" размером "+item.getWidth()+"x"+item.getHeight()+"x"+item.getDepth()+" мм,"
+            +" размером "+item.getWidth()+"x"
+              +item.getHeight()+"x"+item.getDepth()+" мм,"
             +" весом "+item.getWeight()+" г"
         );
         return index;
@@ -37,7 +39,8 @@ class StorageArea {
 
 class Computer implements IStorageItem {
 
-    price:number; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    price:number; 
 
     getWidth():number { return 200; }
     getHeight():number { return 500; }
@@ -49,7 +52,8 @@ class Computer implements IStorageItem {
 
 class Car implements IStorageItem {
     
-    model:string; // специально чтобы классы Computer и Car были несовместимыми
+    // специально чтобы классы Computer и Car были несовместимыми
+    model:string; 
     
     getWidth():number { return 2000; }
     getHeight():number { return 2000; }
@@ -84,12 +88,16 @@ let carIndex2:number=carsStorageArea.storeItem(car2);
 let carIndex3:number=carsStorageArea.storeItem(car3);
 
 // получим один из хранимых объектов
-// мы без проблем можем получить со склада объект, реализующий интерфейс IStorageItem
+// мы без проблем можем получить со склада объект, 
+// реализующий интерфейс IStorageItem
 let item01:IStorageItem=computersStorageArea.getItem(computerIndex2);
 let item02:IStorageItem=carsStorageArea.getItem(computerIndex2);
 // мы НЕ можем без преобразования типа получить ни Car, ни Computer
 // let item11:Car=carsStorageArea.getItem(carIndex2); - ошибка
 // let item12:Computer=computersStorageArea.getItem(computerIndex2); - ошибка
-// мы должны применять явное преобразование типа, что по сути отключает статическую типизацию
-let item21:Car=<Car>carsStorageArea.getItem(carIndex2);
-let item22:Computer=<Computer>computersStorageArea.getItem(computerIndex2);
+// мы должны применять явное преобразование типа, 
+// что по сути отключает статическую типизацию
+let item21:Car=
+  <Car>carsStorageArea.getItem(carIndex2);
+let item22:Computer=
+  <Computer>computersStorageArea.getItem(computerIndex2);

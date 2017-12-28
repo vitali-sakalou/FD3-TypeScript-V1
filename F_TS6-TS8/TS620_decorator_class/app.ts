@@ -1,10 +1,12 @@
 
-function born<ClassConstructor extends Function>(OriginConstructor: ClassConstructor):any {
+function born<ClassConstructor extends Function>
+  (OriginConstructor: ClassConstructor):any {
     // функция-декоратор получит конструктор декорируемого класса
 
     // и может описать новый конструктор
     function NewConstructor(_num:string) {
-        // новый конструктор обычно вызывает старый через call или apply
+        // новый конструктор обычно вызывает старый 
+        // через call или apply
         OriginConstructor.call(this,_num);
         // можно добавить новое свойство
         this.bornTime=new Date();
@@ -37,7 +39,11 @@ class Car {
 
 }
 
-let car1:any=new Car("2870-ОГО"); // new Car возвращает уже не объект класса Car
-car1.show(); // обращаемся к методу оригинального класса
-console.log(car1.bornTime); // обращаемся к свойству, которое добавил декоратор
-console.log(car1.getBornTime()); // обращаемся к методу, который добавил декоратор
+let car1:any=new Car("2870-ОГО"); 
+// new Car возвращает уже не объект класса Car -
+// обращаемся к методу оригинального класса:
+car1.show(); 
+// обращаемся к свойству, которое добавил декоратор:
+console.log(car1.bornTime); 
+// обращаемся к методу, который добавил декоратор:
+console.log(car1.getBornTime()); 
