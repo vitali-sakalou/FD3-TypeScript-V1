@@ -1,20 +1,20 @@
 
 class Scales {
 
-    addedProducts:{name: string, weight: number}[];
+    addedProducts:Product[];
 
     constructor() {
         this.addedProducts=[]; 
     }
 
-    add(_addedProducts:{name: string, weight: number}):void {
+    add(_addedProducts:Product):void {
         this.addedProducts.push(_addedProducts);
         console.log( this.addedProducts);
     }
 
     getSumScale():number {
         let sum:number = 0;
-        this.addedProducts.forEach( (I) => {sum = sum+I.weight})
+        this.addedProducts.forEach( (I) => {sum = sum+I.scale})
         console.log("Общий вес: "+sum+" г.");
         return sum
     }
@@ -78,12 +78,12 @@ let GreenTomato = new Tomato("Зеленый помидор", 200);
 let RedTomato = new Tomato("Красный помидор", 250);
 let YellowTomato = new Tomato("Желтый помидор", 280);
 
-scale.add({name: GreenApple.getName(), weight: GreenApple.getScale()});
-scale.add({name: RedApple.getName(), weight: RedApple.getScale()});
-scale.add({name: YellowApple.getName(), weight: YellowApple.getScale()});
-scale.add({name: GreenTomato.getName(), weight: GreenTomato.getScale()});
-scale.add({name: RedTomato.getName(), weight: RedTomato.getScale()});
-scale.add({name: YellowTomato.getName(), weight: YellowTomato.getScale()});
+scale.add(GreenApple);
+scale.add(RedApple);
+scale.add(YellowApple);
+scale.add(GreenTomato);
+scale.add(RedTomato);
+scale.add(YellowTomato);
 
 scale.getNameList();
 scale.getSumScale();
