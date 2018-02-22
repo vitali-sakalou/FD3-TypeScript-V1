@@ -1,7 +1,7 @@
 
 class Transp {
 
-    public speed:number;
+    speed:number;
 
     protected maxSpeed:number;
     

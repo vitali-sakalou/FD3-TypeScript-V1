@@ -1,13 +1,3 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var Scales = /** @class */ (function () {
     function Scales() {
         this.addedProducts = [];
@@ -18,51 +8,46 @@ var Scales = /** @class */ (function () {
     };
     Scales.prototype.getSumScale = function () {
         var sum = 0;
-        this.addedProducts.forEach(function (I) { sum = sum + I.scale; });
+        this.addedProducts.forEach(function (I) { sum = sum + I.getScale(); });
         console.log("Общий вес: " + sum + " г.");
         return sum;
     };
     Scales.prototype.getNameList = function () {
         var arr = [];
-        this.addedProducts.forEach(function (I) { arr.push(I.name); });
+        this.addedProducts.forEach(function (I) { arr.push(I.getName()); });
         console.log("Наименование продуктов: ", arr);
         return arr;
     };
     return Scales;
 }());
-var Product = /** @class */ (function () {
-    function Product() {
+var Apple = /** @class */ (function () {
+    function Apple(_getName, _getScale) {
+        this.type = 'apple';
+        this.name = _getName;
+        this.scale = _getScale;
     }
-    Product.prototype.getName = function () {
+    Apple.prototype.getName = function () {
         return this.name;
     };
-    Product.prototype.getScale = function () {
+    Apple.prototype.getScale = function () {
         return this.scale;
     };
-    return Product;
-}());
-var Apple = /** @class */ (function (_super) {
-    __extends(Apple, _super);
-    function Apple(_getName, _getScale) {
-        var _this = _super.call(this) || this;
-        _this.type = 'apple';
-        _this.name = _getName;
-        _this.scale = _getScale;
-        return _this;
-    }
     return Apple;
-}(Product));
-var Tomato = /** @class */ (function (_super) {
-    __extends(Tomato, _super);
+}());
+var Tomato = /** @class */ (function () {
     function Tomato(_getName, _getScale) {
-        var _this = _super.call(this) || this;
-        _this.type = 'tomato';
-        _this.name = _getName;
-        _this.scale = _getScale;
-        return _this;
+        this.type = 'tomato';
+        this.name = _getName;
+        this.scale = _getScale;
     }
+    Tomato.prototype.getName = function () {
+        return this.name;
+    };
+    Tomato.prototype.getScale = function () {
+        return this.scale;
+    };
     return Tomato;
-}(Product));
+}());
 var scale = new Scales();
 var GreenApple = new Apple("Зеленое яблоко", 300);
 var RedApple = new Apple("Красное яблоко", 350);
