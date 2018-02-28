@@ -1,3 +1,7 @@
+interface IScalable {
+    getName():string;
+    getScale():number;
+}
 
 class Scales {
 
@@ -27,10 +31,7 @@ class Scales {
     }
 }
 
-interface IScalable {
-    getName():string;
-    getScale():number;
-}
+
 
 
 class Apple implements IScalable {

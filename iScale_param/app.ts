@@ -1,31 +1,44 @@
+interface IStorageEngine{
 
-class Scales {
+     addItem(item):number;
+     getItem(index):number; 
+     getCount():number;
+
+}
+
+class Scales<StorageEngine extends IStorageEngine> {
 
     addedProducts:Product[];
 
     constructor() {
         this.addedProducts=[]; 
     }
+  
+}
 
-    add(_addedProducts:Product):void {
+class ScalesStorageEngineArray implements IStorageEngine {
+
+     addItem(_addedProducts:Product):number {
         this.addedProducts.push(_addedProducts);
         console.log( this.addedProducts);
-    }
+        return (this.addedProducts.length)
+    };
+     getItem(index):number{}; 
+     getCount():number{};
 
-    getSumScale():number {
-        let sum:number = 0;
-        this.addedProducts.forEach( (I) => {sum = sum+I.getScale()})
-        console.log("Общий вес: "+sum+" г.");
-        return sum
-    }
-    
-    getNameList():string[] {
-        let arr:string[]= [];
-        this.addedProducts.forEach( (I) => {arr.push(I.getName())})
-        console.log("Наименование продуктов: ",arr);
-        return arr;
-    }
 }
+
+class ScalesStorageEngineLocalStorage  implements IStorageEngine {
+
+    addItem(item):number{r};
+    getItem(index):number{}; 
+    getCount():number{};
+
+}
+
+let ScalesStorageEngineArrayScale=new Scales<ScalesStorageEngineArray>();
+
+let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
 
 
 
@@ -48,7 +61,6 @@ class Product {
     }
 }
 
-
 class Apple extends Product {
 
     type:string = 'apple';
@@ -69,7 +81,10 @@ class Tomato extends Product {
     
 }
 
+
 let scale = new Scales();
+
+
 let GreenApple = new Apple("Зеленое яблоко", 300);
 let RedApple = new Apple("Красное яблоко", 350);
 let YellowApple = new Apple("Желтое яблоко", 400);
