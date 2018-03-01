@@ -1,44 +1,61 @@
-interface IStorageEngine{
+// interface IStorageEngine{
 
-     addItem(item):number;
-     getItem(index):number; 
-     getCount():number;
+//      addItem(item):number;
+//      getItem(index):number; 
+//      getCount():number;
 
+// }
+
+class Scales<StorageEngine> {
+
+    items: StorageEngine[];
+    
+    constructor(typeEngine) {
+        this.items = typeEngine.addedProducts; 
+        console.log("!",typeEngine.addedProducts);
+    }
+
+    addItem(_addedProducts:any):void {
+        this.items.push(_addedProducts);
+        console.log( this.items);
+    };
+
+    getItem(index:number):StorageEngine{
+        let element:StorageEngine= this.items[index];
+        console.log(element);
+        return element;
+    };
+
+    getCount():number{
+        console.log(this.items.length);
+        return (this.items.length);
+    };
+    
 }
 
-class Scales<StorageEngine extends IStorageEngine> {
-
-    addedProducts:Product[];
+class ScalesStorageEngineArray {
+    
+    addedProducts:Array<any>;
 
     constructor() {
         this.addedProducts=[]; 
     }
-  
-}
-
-class ScalesStorageEngineArray implements IStorageEngine {
-
-     addItem(_addedProducts:Product):number {
-        this.addedProducts.push(_addedProducts);
-        console.log( this.addedProducts);
-        return (this.addedProducts.length)
-    };
-     getItem(index):number{}; 
-     getCount():number{};
 
 }
 
-class ScalesStorageEngineLocalStorage  implements IStorageEngine {
+// class ScalesStorageEngineLocalStorage  implements IStorageEngine {
 
-    addItem(item):number{r};
-    getItem(index):number{}; 
-    getCount():number{};
+//     addItem(item):number{r};
+//     getItem(index):number{}; 
+//     getCount():number{};
 
-}
+// }
 
-let ScalesStorageEngineArrayScale=new Scales<ScalesStorageEngineArray>();
+let typeOfStorageEngineArray=new ScalesStorageEngineArray();
 
-let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
+let scale = new Scales<ScalesStorageEngineArray>(typeOfStorageEngineArray);
+
+// let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
 
 
 
@@ -82,8 +99,6 @@ class Tomato extends Product {
 }
 
 
-let scale = new Scales();
-
 
 let GreenApple = new Apple("Зеленое яблоко", 300);
 let RedApple = new Apple("Красное яблоко", 350);
@@ -93,12 +108,16 @@ let GreenTomato = new Tomato("Зеленый помидор", 200);
 let RedTomato = new Tomato("Красный помидор", 250);
 let YellowTomato = new Tomato("Желтый помидор", 280);
 
-scale.add(GreenApple);
-scale.add(RedApple);
-scale.add(YellowApple);
-scale.add(GreenTomato);
-scale.add(RedTomato);
-scale.add(YellowTomato);
+// typeOfStorageEngineArray.addItem(GreenApple);
+// typeOfStorageEngineArray.getItem(0);
 
-scale.getNameList();
-scale.getSumScale();
+
+scale.addItem(GreenApple);
+scale.addItem(RedApple);
+scale.addItem(YellowApple);
+scale.addItem(GreenTomato);
+scale.addItem(RedTomato);
+scale.addItem(YellowTomato);
+
+scale.getItem(3);
+scale.getCount();
