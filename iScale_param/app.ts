@@ -6,16 +6,6 @@ interface IStorageEngine{
 
 }
 
-// class ScalesStorageEngineLocalStorage  implements IStorageEngine {
-
-//     addItem(item):number{r};
-//     getItem(index):number{}; 
-//     getCount():number{};
-
-// }
-
-// let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
-
 class Scales<StorageEngine extends IStorageEngine> {
 
     engine: StorageEngine;
