@@ -1,4 +1,3 @@
-// interface IStorageEngine{
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9,47 +8,61 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-//      addItem(item):number;
-//      getItem(index):number; 
-//      getCount():number;
+// class ScalesStorageEngineLocalStorage  implements IStorageEngine {
+//     addItem(item):number{r};
+//     getItem(index):number{}; 
+//     getCount():number{};
 // }
+// let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
 var Scales = /** @class */ (function () {
     function Scales(typeEngine) {
-        this.items = typeEngine.addedProducts;
-        console.log("!", typeEngine.addedProducts);
+        this.engine = typeEngine;
     }
     Scales.prototype.addItem = function (_addedProducts) {
-        this.items.push(_addedProducts);
-        console.log(this.items);
+        this.engine.addItem(_addedProducts);
     };
     ;
-    Scales.prototype.getItem = function (index) {
-        var element = this.items[index];
-        console.log(element);
-        return element;
+    Scales.prototype.getSumScale = function () {
+        var sum = 0;
+        var count = this.engine.getCount();
+        for (var i = 0; i < count; i++) {
+            sum = sum + this.engine.getItem(i).getScale();
+        }
+        console.log("Общий вес: " + sum + " г.");
+        return sum;
     };
-    ;
-    Scales.prototype.getCount = function () {
-        console.log(this.items.length);
-        return (this.items.length);
+    Scales.prototype.getNameList = function () {
+        var arr = [];
+        var count = this.engine.getCount();
+        for (var i = 0; i < count; i++) {
+            arr.push(this.engine.getItem(i).getName());
+        }
+        console.log("Наименование продуктов: ", arr);
+        return arr;
     };
-    ;
     return Scales;
 }());
 var ScalesStorageEngineArray = /** @class */ (function () {
     function ScalesStorageEngineArray() {
         this.addedProducts = [];
     }
+    ScalesStorageEngineArray.prototype.addItem = function (_addedProducts) {
+        this.addedProducts.push(_addedProducts);
+    };
+    ;
+    ScalesStorageEngineArray.prototype.getItem = function (index) {
+        var element = this.addedProducts[index];
+        return element;
+    };
+    ;
+    ScalesStorageEngineArray.prototype.getCount = function () {
+        return (this.addedProducts.length);
+    };
+    ;
     return ScalesStorageEngineArray;
 }());
-// class ScalesStorageEngineLocalStorage  implements IStorageEngine {
-//     addItem(item):number{r};
-//     getItem(index):number{}; 
-//     getCount():number{};
-// }
 var typeOfStorageEngineArray = new ScalesStorageEngineArray();
 var scale = new Scales(typeOfStorageEngineArray);
-// let ScalesStorageEngineLocalStorageScale=new Scales<ScalesStorageEngineLocalStorage>();
 var Product = /** @class */ (function () {
     function Product(_getName, _getScale) {
         this.name = _getName;
@@ -87,14 +100,12 @@ var YellowApple = new Apple("Желтое яблоко", 400);
 var GreenTomato = new Tomato("Зеленый помидор", 200);
 var RedTomato = new Tomato("Красный помидор", 250);
 var YellowTomato = new Tomato("Желтый помидор", 280);
-// typeOfStorageEngineArray.addItem(GreenApple);
-// typeOfStorageEngineArray.getItem(0);
 scale.addItem(GreenApple);
 scale.addItem(RedApple);
 scale.addItem(YellowApple);
 scale.addItem(GreenTomato);
 scale.addItem(RedTomato);
 scale.addItem(YellowTomato);
-scale.getItem(3);
-scale.getCount();
+scale.getSumScale();
+scale.getNameList();
 //# sourceMappingURL=app.js.map
